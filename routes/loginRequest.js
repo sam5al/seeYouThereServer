@@ -8,7 +8,6 @@ var router = express.Router();
 
 /* GET auth. */
 router.post('/auth', function(req, res, next) {
-    console.log(req.body.username);
     mongoose.model('loginRequest')
     .find({$or:[{'usr_email': req.body.username}, {'usr_username': req.body.username}]})
     .limit(1)
